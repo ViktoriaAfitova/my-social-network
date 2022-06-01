@@ -1,16 +1,13 @@
 import React from "react";
-import { student } from "../../assets";
 import MyPosts from "./MyPosts/MyPosts";
 // import style from "./profile.module.css";
+import ProfileInfo from './ProfileInfo/ProfileInfo';
 
-const Profile = () => {
+const Profile = (props) => {
   return (
     <div>
-      <div>
-        <img src={student} alt="img" />
-      </div>
-      <div>ava + descr</div>
-      <MyPosts />
+      <ProfileInfo />
+      <MyPosts posts={props.posts} />
     </div>
   );
 };

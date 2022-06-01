@@ -8,9 +8,9 @@ const Navbar = () => {
       <ul className={style.list}>
         <li className={style.item}><NavLink to="/profile" className={style.link} activeclassname={style.active}>Profile</NavLink></li>
         <li className={style.item}><NavLink to="/dialogues" className={style.link} activeclassname={style.active}>Message</NavLink></li>
-        <li className={style.item}><a className={style.link} href="#s">News</a></li>
-        <li className={style.item}><a className={style.link} href="#s">Music</a></li>
-        <li className={style.item}><a className={style.link} href="#s">Settings</a></li>
+        <li className={style.item}><NavLink to="/" className={style.link}>News</NavLink></li>
+        <li className={style.item}><NavLink to="/" className={style.link}>Music</NavLink></li>
+        <li className={style.item}><NavLink to="/" className={style.link}>Settings</NavLink></li>
       </ul>
     </nav>
   )

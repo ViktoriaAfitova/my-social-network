@@ -1,0 +1,26 @@
+.dialoguesContainer {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+  padding: 20px;
+  margin: 0 auto;
+}
+/* .personalityList {
+
+} */
+.personalityItem {
+  font-weight: 400;
+	font-size: 22px;
+  letter-spacing: 0.08em;
+  color: #4C5270;
+}
+.personalityItem .active {
+  color: #BCECE0;
+}
+/* .messagesList {
+
+} */
+.messagesItem {
+  font-weight: 400;
+	font-size: 22px;
+  letter-spacing: 0.08em;
+}

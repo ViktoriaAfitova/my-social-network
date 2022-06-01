@@ -1,3 +1,6 @@
+.postsContainer {
+  padding: 0 20px;
+}
 .item {
-  color: red;
+  color: #4C5270;
 }
