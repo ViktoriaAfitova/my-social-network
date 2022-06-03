@@ -14,8 +14,20 @@ export const App = (props) => {
         <Navbar />
         <div className="wrapper-content">
           <Routes>
-            <Route path="/profile" element={<Profile posts={props.posts} />} />
-            <Route path="/dialogues" element={<Dialogues personalityData={props.personalityData} messagesData={props.messagesData} />} />
+            <Route
+              path="/profile"
+              element={
+                <Profile
+                  profilePage={props.state.profilePage}
+                  addPost={props.addPost}
+                  updatePostText={props.updatePostText}
+                />
+              }
+            />
+            <Route
+              path="/dialogues"
+              element={<Dialogues state={props.state.dialoguesPage} />}
+            />
           </Routes>
         </div>
       </div>

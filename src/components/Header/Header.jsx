@@ -1,12 +1,12 @@
 import React from 'react';
 import style from './header.module.css';
-import { computer } from '../../assets';
+import { student } from '../../assets';
 
 const Header = () => {
   return (
     <header className={style.header}>
       <div className={style.container}>
-        <img src={computer} alt="logo"/>
+        <img src={student} alt="logo"/>
       </div>
     </header>
   )

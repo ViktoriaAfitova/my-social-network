@@ -1,3 +1,11 @@
 .description {
   padding: 20px;
 }
+.imgContainer {
+  padding: 20px;
+  max-width: 200px;
+  margin: 0 auto;
+}
+.bg {
+  width: 100%;
+}

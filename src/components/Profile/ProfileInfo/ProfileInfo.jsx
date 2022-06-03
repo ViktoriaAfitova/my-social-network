@@ -1,12 +1,12 @@
 import React from 'react';
-import { student } from '../../../assets';
+import {computer } from '../../../assets';
 import style from './profileInfo.module.css';
 
 const ProfileInfo = () => {
   return (
     <div>
-      <div>
-        <img src={student} alt="img" />
+      <div className={style.imgContainer}>
+        <img className={style.bg} src={computer} alt="img" />
       </div>
       <div className={style.description}>
         ava + descr
