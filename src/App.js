@@ -3,8 +3,8 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
-import Dialogues from "./components/Dialogues/Dialogues";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+import DialoguesContainer from "./components/Dialogues/DialoguesContainer";
 
 export const App = (props) => {
   return (
@@ -18,14 +18,13 @@ export const App = (props) => {
               path="/profile"
               element={
                 <Profile
-                  profilePage={props.state.profilePage}
-                  dispatch={props.dispatch}
+                  store={props.store}
                 />
               }
             />
             <Route
               path="/dialogues"
-              element={<Dialogues store={props.store} />}
+              element={<DialoguesContainer store={props.store} />}
             />
           </Routes>
         </div>
