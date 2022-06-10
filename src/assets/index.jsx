@@ -5,6 +5,7 @@ import avatar3 from './avatar_3.png';
 import avatar4 from './avatar_4.png';
 import computer from './computer.png';
 import avatar from './avatar_2.png';
+import transparentAvatar from './transparentAvatar.jpg';
 
 export {
   student,
@@ -13,5 +14,6 @@ export {
   avatar3,
   avatar4,
   computer,
-  avatar
+  avatar,
+  transparentAvatar
 }
