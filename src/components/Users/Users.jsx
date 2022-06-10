@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./users.module.css";
 import { transparentAvatar } from "../../assets";
+import { NavLink } from "react-router-dom";
 
 const Users = (props) => {
 
@@ -31,15 +32,17 @@ const Users = (props) => {
         <div key={user.id}>
           <div>
             <div>
-              <img
-                className={style.avatar}
-                src={
-                  user.photos.small != null
-                    ? user.photos.small
-                    : transparentAvatar
-                }
-                alt="avatar"
-              />
+              <NavLink to={'/profile/' + user.id}>
+                <img
+                  className={style.avatar}
+                  src={
+                    user.photos.small != null
+                      ? user.photos.small
+                      : transparentAvatar
+                  }
+                  alt="avatar"
+                />
+              </NavLink>
             </div>
             {user.followed ? (
               <button

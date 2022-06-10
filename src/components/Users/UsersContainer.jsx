@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
 import { connect } from "react-redux";
 import {
-  followAC,
-  unfollowAC,
-  setUsersAC,
-  setCurrentPageAC,
-  setTotaUsersCountAC,
-  setToggleIsLoadingAC,
+  follow,
+  unfollow,
+  setUsers,
+  setCurrentPage,
+  setTotalUsersCount,
+  toggleIsLoading
 } from "../../redux/usersReduser";
 import Users from "./Users";
-import axios from 'axios';
-import Spinner from '../Spinner/Spinner';
+import axios from "axios";
+import Spinner from "../Spinner/Spinner";
 class UsersContainer extends React.Component {
   componentDidMount() {
     this.props.toogleIsLoading(true);
@@ -41,7 +41,7 @@ class UsersContainer extends React.Component {
   render() {
     return (
       <>
-      { this.props.isLoading ? <Spinner /> : null }
+        {this.props.isLoading ? <Spinner /> : null}
         <Users
           users={this.props.users}
           follow={this.props.follow}
@@ -66,27 +66,34 @@ let mapStateToProps = (state) => {
   };
 };
 
-let mapDispatchToProps = (dispatch) => {
-  return {
-    follow: (userId) => {
-      dispatch(followAC(userId));
-    },
-    unfollow: (userId) => {
-      dispatch(unfollowAC(userId));
-    },
-    setUsers: (users) => {
-      dispatch(setUsersAC(users));
-    },
-    setCurrentPage: (pageNumber) => {
-      dispatch(setCurrentPageAC(pageNumber));
-    },
-    setTotalUsersCount: (totalCount) => {
-      dispatch(setTotaUsersCountAC(totalCount));
-    },
-    toogleIsLoading: (isLoading) => {
-      dispatch(setToggleIsLoadingAC(isLoading));
-    }
-  };
-};
+// let mapDispatchToProps = (dispatch) => {
+//   return {
+//     follow: (userId) => {
+//       dispatch(followAC(userId));
+//     },
+//     unfollow: (userId) => {
+//       dispatch(unfollowAC(userId));
+//     },
+//     setUsers: (users) => {
+//       dispatch(setUsersAC(users));
+//     },
+//     setCurrentPage: (pageNumber) => {
+//       dispatch(setCurrentPageAC(pageNumber));
+//     },
+//     setTotalUsersCount: (totalCount) => {
+//       dispatch(setUsersTotalCountAC(totalCount));
+//     },
+//     toogleIsLoading: (isLoading) => {
+//       dispatch(toggleIsLoadingAC(isLoading));
+//     }
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+export default connect(mapStateToProps, {
+  follow,
+  unfollow,
+  setUsers,
+  setCurrentPage,
+  setTotalUsersCount,
+  toggleIsLoading
+})(UsersContainer);
