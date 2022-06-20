@@ -37,6 +37,7 @@ let store = {
       ],
     },
   },
+
   _callSubscriber() {
     console.log("state chanched");
   },
@@ -57,6 +58,6 @@ let store = {
   }
 
 };
-
-export default store;
 window.state = store;
+export default store;
+

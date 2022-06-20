@@ -2,9 +2,15 @@
   grid-area: h;
   background-color: #4C5270;
 }
-.container {
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 20px 0 0 20px;
 }
 .header img {
   width: 30px;
+}
+.login a {
+  color: #F652A0;
 }

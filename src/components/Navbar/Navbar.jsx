@@ -2,11 +2,12 @@ import React from 'react';
 import style from './navbar.module.css';
 import { NavLink } from 'react-router-dom';
 
-const Navbar = (props) => {
+const Navbar = ({profile, id}) => {
+
   return (
     <nav className={style.nav}>
       <ul className={style.list}>
-        <li className={style.item}><NavLink to="/profile" className={style.link} activeclassname={style.active}>Profile</NavLink></li>
+        <li className={style.item}><NavLink to={`/profile/posts/${id}`} className={style.link} activeclassname={style.active}>Profile</NavLink></li>
         <li className={style.item}><NavLink to="/dialogues" className={style.link} activeclassname={style.active}>Message</NavLink></li>
         <li className={style.item}><NavLink to="/users" className={style.link} activeclassname={style.active}>Users</NavLink></li>
         <li className={style.item}><NavLink to="/news" className={style.link}>News</NavLink></li>
