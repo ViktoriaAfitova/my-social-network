@@ -10,7 +10,7 @@ import Users from "./Users";
 import style from "./users.module.css";
 import Spinner from "../Spinner/Spinner";
 
-const UsersContainer = ({ users, pageSize, totalUsersCount, currentPage, isLoading, getUsersThunkCreator, follow, unfollow }) => {
+const UsersContainer = ({ users, userId, pageSize, totalUsersCount, currentPage, isLoading, getUsersThunkCreator, follow, unfollow }) => {
 
     useEffect(() => {
       getUsersThunkCreator(currentPage, pageSize);
@@ -30,6 +30,7 @@ const UsersContainer = ({ users, pageSize, totalUsersCount, currentPage, isLoadi
             totalUsersCount={totalUsersCount}
             pageSize={pageSize}
             onPageChanged={onPageChanged}
+            id={userId}
             users={users}
             follow={follow}
             unfollow={unfollow}

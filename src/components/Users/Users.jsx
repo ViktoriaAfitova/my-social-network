@@ -6,7 +6,6 @@ import Pagination from "@mui/material/Pagination";
 
 const Users = ({
   users,
-  id,
   totalUsersCount,
   pageSize,
   currentPage,
@@ -31,7 +30,7 @@ const Users = ({
           <div key={user.id} id={user.id}>
             <div>
               <div>
-                <NavLink to={`/profile/about/${id}`}>
+                <NavLink to={`/profile/${user.id}`}>
                   <img
                     className={style.avatar}
                     src={

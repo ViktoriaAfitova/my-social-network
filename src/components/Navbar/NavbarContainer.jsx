@@ -9,7 +9,7 @@ const NavbarContainer = ({profile, id}) => {
 let mapStateToProps = (state) => (
   {
       profile: state.profilePage.profile,
-      id: state.auth.id,
+      id: state.auth.userId,
   }
 )
 
