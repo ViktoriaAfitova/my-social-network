@@ -10,10 +10,17 @@ const Header = (props) => {
         <div className={style.container}>
           <img src={student} alt="logo" />
         </div>
-        <div className={style.login}>
-          {props.isAuth ? props.login : <NavLink to={"/login"}>Login</NavLink>}
+        {props.isAuth ? props.login
+          // <div className={style.login}>
+          //   login={props.login}
+          //   id={props.id}
+          //   isAuth={props.isAuth}
+          //   profile={props.profile}
+          // </div>
+        : <NavLink to={"/login"}>Login</NavLink>
+        }
         </div>
-      </div>
+
     </header>
   );
 };

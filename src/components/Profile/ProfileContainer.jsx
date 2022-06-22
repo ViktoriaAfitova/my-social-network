@@ -8,6 +8,7 @@ import { compose } from "redux";
 
 const ProfileContainer = ({ profile, profileThunkCreator, id, posts }) => {
   const { userId } = useParams();
+
   useEffect(() => {
     profileThunkCreator(userId);
   }, [userId, profileThunkCreator]);

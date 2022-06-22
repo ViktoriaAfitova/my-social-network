@@ -35,3 +35,11 @@ export const profileAPI = {
     });
   },
 };
+
+export const authAPI = {
+  auth() {
+    return instance.get(`auth/me`).then((response) => {
+      return response.data;
+    })
+  }
+}
