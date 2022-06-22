@@ -4,6 +4,7 @@ import { transparentAvatar } from "../../assets";
 import { NavLink } from "react-router-dom";
 import Pagination from "@mui/material/Pagination";
 
+
 const Users = ({
   users,
   totalUsersCount,
@@ -12,6 +13,8 @@ const Users = ({
   onPageChanged,
   follow,
   unfollow,
+  followingInProgress,
+  disabled,
 }) => {
   let pagesCount = Math.ceil(totalUsersCount / pageSize);
 
@@ -44,14 +47,16 @@ const Users = ({
               </div>
               {user.followed ? (
                 <button
+                  disabled={followingInProgress.some((id) => id === user.id)}
                   onClick={() => {
-                    unfollow(user.id);
+                    unfollow(true, user.id);
                   }}
                 >
                   Unfollow
                 </button>
               ) : (
                 <button
+                  disabled={followingInProgress.some((id) => id === user.id)}
                   onClick={() => {
                     follow(user.id);
                   }}

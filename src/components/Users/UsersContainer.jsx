@@ -1,23 +1,20 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
-import {
-  follow,
-  unfollow,
-  getUsersThunkCreator,
-} from '../../redux/usersReduser';
+import { follow, unfollow, getUsersThunkCreator, toggleFollowingProgress } from '../../redux/usersReduser';
 import Users from "./Users";
 import style from "./users.module.css";
 import Spinner from "../Spinner/Spinner";
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
-const UsersContainer = ({ users, userId, pageSize, totalUsersCount, currentPage, isLoading, getUsersThunkCreator, follow, unfollow }) => {
+const UsersContainer = ({ users, userId, pageSize, totalUsersCount, currentPage, isLoading, getUsersThunkCreator, follow, unfollow, followingInProgress, toggleFollowingInProgress }) => {
 
-    useEffect(() => {
-      getUsersThunkCreator(currentPage, pageSize);
+  useEffect(() => {
+    getUsersThunkCreator(currentPage, pageSize);
   }, [pageSize, currentPage, getUsersThunkCreator])
 
   const onPageChanged = (page) => {
-      getUsersThunkCreator(page, pageSize);
+    getUsersThunkCreator(page, pageSize);
   }
 
   return (
@@ -34,6 +31,8 @@ const UsersContainer = ({ users, userId, pageSize, totalUsersCount, currentPage,
             users={users}
             follow={follow}
             unfollow={unfollow}
+            followingInProgress={followingInProgress}
+            // toggleFollowingInProgress={toggleFollowingInProgress}
           />
         }
       </div>
@@ -48,13 +47,15 @@ let mapStateToProps = (state) => {
     totalUsersCount: state.usersPage.totalUsersCount,
     currentPage: state.usersPage.currentPage,
     isLoading: state.usersPage.isLoading,
+    followingInProgress: state.usersPage.followingInProgress
   };
 };
 
 export default compose(
-  connect(mapStateToProps, {
-    follow,
-    unfollow,
-    getUsersThunkCreator,
-  })
-)(UsersContainer);
+  (connect(mapStateToProps, {follow, unfollow, getUsersThunkCreator, toggleFollowingProgress})),
+  withAuthRedirect
+) (UsersContainer);
+
+
+
+
