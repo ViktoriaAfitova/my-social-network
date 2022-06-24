@@ -5,16 +5,22 @@ import Profile from "./Profile";
 import { setUserProfile, profileThunkCreator } from "../../redux/profileReducer";
 import { useParams } from "react-router-dom";
 import { compose } from "redux";
-import { withAuthRedirect } from "../../hoc/withAuthRedirect";
+// import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
-const ProfileContainer = ({ profile, profileThunkCreator, id, posts, isAuth }) => {
+const ProfileContainer = ({ profile, profileThunkCreator, id, posts }) => {
   const { userId } = useParams();
 
   useEffect(() => {
     profileThunkCreator(userId);
   }, [userId, profileThunkCreator]);
 
-  return <Profile profile={profile} id={id} posts ={posts} />;
+  return (
+    <Profile
+      id={id}
+      profile={profile}
+      posts={posts}
+    />
+  )
 };
 
 let mapStateToProps = (state) => ({
@@ -23,7 +29,7 @@ let mapStateToProps = (state) => ({
 
 export default compose(
   connect(mapStateToProps, { setUserProfile, profileThunkCreator }),
-  withAuthRedirect
+  // withAuthRedirect
 ) (ProfileContainer);
 
 

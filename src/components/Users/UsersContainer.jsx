@@ -5,7 +5,7 @@ import { follow, unfollow, getUsersThunkCreator, toggleFollowingProgress } from 
 import Users from "./Users";
 import style from "./users.module.css";
 import Spinner from "../Spinner/Spinner";
-import { withAuthRedirect } from "../../hoc/withAuthRedirect";
+// import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 const UsersContainer = ({ users, userId, pageSize, totalUsersCount, currentPage, isLoading, getUsersThunkCreator, follow, unfollow, followingInProgress, toggleFollowingInProgress }) => {
 
@@ -53,7 +53,7 @@ let mapStateToProps = (state) => {
 
 export default compose(
   (connect(mapStateToProps, {follow, unfollow, getUsersThunkCreator, toggleFollowingProgress})),
-  withAuthRedirect
+  // withAuthRedirect
 ) (UsersContainer);
 
 
