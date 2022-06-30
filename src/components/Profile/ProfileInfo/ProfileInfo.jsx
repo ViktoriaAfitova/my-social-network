@@ -3,7 +3,7 @@ import React from "react";
 import style from "./profileInfo.module.css";
 import ProfileStatus from "./ProfileStatus";
 
-const ProfileInfo = ({ profile, userId, posts, status }) => {
+const ProfileInfo = ({ profile, id, posts, status, updateStatus }) => {
 
   return (
     <div>
@@ -11,16 +11,19 @@ const ProfileInfo = ({ profile, userId, posts, status }) => {
         <img className={style.bg} src={computer} alt="img" />
       </div> */}
       <div className={style.description}>
-        <img src={profile.photos.large} alt="" />
-        <ProfileStatus status={'hello'} />
-        <p>{profile.aboutMe}</p>
+        {/* <img src={profile.photos.large} alt="" /> */}
+        <ProfileStatus
+          status={status}
+          updateStatus={updateStatus}
+        />
+        {/* <p>{profile.aboutMe}</p>
         <p>{profile.contacts.facebook}</p>
         <p>{profile.contacts.website}</p>
         <p>{profile.contacts.vk}</p>
         <p>{profile.contacts.twitter}</p>
         <p>{profile.contacts.instagram}</p>
         <p>{profile.contacts.youtube}</p>
-        <p>{profile.contacts.github}</p>
+        <p>{profile.contacts.github}</p> */}
       </div>
     </div>
   );

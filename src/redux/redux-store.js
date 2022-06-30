@@ -11,7 +11,7 @@ let reducers = combineReducers({
   dialoguesPage: dialoguesReducer,
   sidebar: sidebarReducer,
   usersPage: usersReducer,
-  auth: authReducer,
+  auth: authReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

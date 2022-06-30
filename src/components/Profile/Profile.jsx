@@ -4,16 +4,18 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import Spinner from '../Spinner/Spinner';
 
-const Profile = ({profile, id, posts}) => {
-  if (!profile) {
-    return <Spinner/>
-  }
+const Profile = ({profile, userId, posts, status, updateStatus}) => {
+  // if (!profile) {
+  //   return <Spinner/>
+  // }
   return (
     <div>
       <ProfileInfo
         profile={profile}
-        id={id}
+        // id={id}
         posts={posts}
+        status={status}
+        updateStatus={updateStatus}
       />
       <MyPostsContainer  />
     </div>
