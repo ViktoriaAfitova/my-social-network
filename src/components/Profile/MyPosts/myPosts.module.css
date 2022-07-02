@@ -4,3 +4,10 @@
 .item {
   color: #4C5270;
 }
+
+.formControl {
+  margin-bottom: 20px;
+}
+.error {
+  color: red;
+}

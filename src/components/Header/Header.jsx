@@ -3,24 +3,30 @@ import style from "./header.module.css";
 import { student } from "../../assets";
 import { NavLink } from "react-router-dom";
 
-const Header = (props) => {
+const Header = ({id, email, login, isAuth}) => {
+  // debugger;
   return (
     <header className={style.header}>
       <div className={style.headerContainer}>
         <div className={style.container}>
           <img src={student} alt="logo" />
         </div>
-        {props.isAuth ? props.login
-          // <div className={style.login}>
-          //   login={props.login}
-          //   id={props.id}
-          //   isAuth={props.isAuth}
-          //   profile={props.profile}
-          // </div>
-        : <NavLink to={"/login"}>Login</NavLink>
-        }
-        </div>
 
+        <div className={style.login}>
+          {isAuth ? (
+            <span
+              // login={login}
+              // isAuth={isAuth}
+              // email={email}
+              // id={id}
+              // profile={profile}
+            >{login}
+            </span>
+          ) : (
+            <NavLink to={"/login"}>Login</NavLink>
+          )}
+        </div>
+      </div>
     </header>
   );
 };

@@ -17,26 +17,52 @@ const MyPosts = (props) => {
   );
 };
 
+const initialValues = {
+  text: ''
+}
+
+const onSubmit = (values) => {
+  console.log(values)
+}
+
+const validate = (values) => {
+  let errors = {};
+
+  if(!values.text) {
+    errors.text = 'Required';
+  // } else if (/^(?:(?![\s\n]+$)[\s\S])+$/.test(values.text)) {
+  //   errors.text = 'Invalid format'
+  }
+
+  return errors;
+}
+
+
 const AddPostForm = (props) => {
 
   const formik = useFormik({
-    initialValues: {
-      text: ''
-    },
-    onSubmit: values => {
-      console.log(values)
-    },
+    initialValues,
+    onSubmit,
+    validate
   })
+
+  console.log(formik.errors);
 
   return (
      <div>
        <form onSubmit={formik.handleSubmit}>
-          <textarea
-            type='text' id='text' name='text'
+         <div className={style.formControl}>
+           <textarea
+            type='text'
+            id='text'
+            name='text'
             value={formik.values.text}
             onChange={formik.handleChange}
             onSubmit={formik.handleSubmit}
           />
+          {formik.errors.text ? <div className={style.error}>{formik.errors.text}</div> : null}
+         </div>
+
         <div><button type='submit'>Add post</button></div>
       </form>
     </div>
