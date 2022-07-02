@@ -3,8 +3,7 @@ import style from "./header.module.css";
 import { student } from "../../assets";
 import { NavLink } from "react-router-dom";
 
-const Header = ({id, email, login, isAuth}) => {
-  // debugger;
+const Header = (props) => {
   return (
     <header className={style.header}>
       <div className={style.headerContainer}>
@@ -13,15 +12,10 @@ const Header = ({id, email, login, isAuth}) => {
         </div>
 
         <div className={style.login}>
-          {isAuth ? (
-            <span
-              // login={login}
-              // isAuth={isAuth}
-              // email={email}
-              // id={id}
-              // profile={profile}
-            >{login}
-            </span>
+          {props.isAuth ? (
+            <div>
+              {props.login} <button onClick={props.logout}>Log Out</button>
+            </div>
           ) : (
             <NavLink to={"/login"}>Login</NavLink>
           )}

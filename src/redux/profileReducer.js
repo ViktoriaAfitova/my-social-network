@@ -58,7 +58,7 @@ export const setStatus = (status) => { return { type: SET_STATUS, status } };
 
 export const profileThunkCreator = (userId) => async (dispatch) => {
   try {
-    let response = await profileAPI.profileThunkCreator(userId);
+    let response = await profileAPI.profile(userId);
     dispatch(setUserProfile(response.data));
   } catch (error) {
     // dispatch(setGlobalError(error))

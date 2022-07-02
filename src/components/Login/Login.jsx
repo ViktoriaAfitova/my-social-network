@@ -1,15 +1,11 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import style from './login.module.css';
-// import { Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loginThunk } from '../../redux/auth-reducer';
 
 const LoginForm = ({loginThunk}) => {
-  // if(isAuth) {
-  //   return <Navigate replace to={`/profile/posts/${userId}`} />
-  // }
-
 
   const formik = useFormik({
     initialValues: {
@@ -23,27 +19,27 @@ const LoginForm = ({loginThunk}) => {
       formik.setSubmitting(true);
     },
 
-    validate: values => {
-      let errors = {};
+    // validate: values => {
+    //   let errors = {};
 
-      if(!values.email) {
-        errors.email = 'Required';
-      } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values)) {
-        errors.login = 'Invalid format';
-      }
+    //   if(!values.email) {
+    //     errors.email = 'Required';
+    //   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values)) {
+    //     errors.login = 'Invalid format';
+    //   }
 
-      if(!values.password) {
-        errors.password = 'Required';
-      // } else if (/^(?:(?![\s\n]+$)[\s\S])+$/.test(values.text)) {
-      //   errors.password = 'Invalid format'
-      }
+    //   if(!values.password) {
+    //     errors.password = 'Required';
+    //   // } else if (/^(?:(?![\s\n]+$)[\s\S])+$/.test(values.text)) {
+    //   //   errors.password = 'Invalid format'
+    //   }
 
-      // if(!values.rememberMe) {
-      //   errors.rememberMe = 'Required';
-      // }
+    //   // if(!values.rememberMe) {
+    //   //   errors.rememberMe = 'Required';
+    //   // }
 
-      return errors;
-    }
+    //   return errors;
+    // }
   })
 
   // console.log(formik.values)
@@ -81,7 +77,11 @@ const LoginForm = ({loginThunk}) => {
   )
 }
 
-const Login = ({loginThunk}) => {
+const Login = ({loginThunk, isAuth, userId}) => {
+
+  if(isAuth) {
+    return <Navigate replace to={`/profile/${userId}`} />
+  }
 
   return (
     <>
@@ -93,7 +93,7 @@ const Login = ({loginThunk}) => {
 
 const mapStateToProps = (state) => ({
   isAuth : state.auth.isAuth,
-  id: state.auth.id,
+  // id: state.auth.id,
 })
 
 export default connect(mapStateToProps, {loginThunk}) (Login);

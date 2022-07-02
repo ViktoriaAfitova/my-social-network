@@ -1,18 +1,17 @@
-// import axios from "axios";
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import Profile from "./Profile";
 import { setUserProfile, profileThunkCreator, getStatus, updateStatus } from "../../redux/profileReducer";
 import { useParams } from "react-router-dom";
 import { compose } from "redux";
-// import { withAuthRedirect } from "../../hoc/withAuthRedirect";
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 const ProfileContainer = ({ profile, profileThunkCreator, id, posts, status }) => {
   const { userId } = useParams();
 
-  if (!userId) {
-    userId = 24484;
-  }
+  // if (!userId) {
+  //   userId = 24484;
+  // }
 
   useEffect(() => {
     profileThunkCreator(userId);
@@ -24,7 +23,7 @@ const ProfileContainer = ({ profile, profileThunkCreator, id, posts, status }) =
 
   return (
     <Profile
-      id={id}
+      id={userId}
       profile={profile}
       posts={posts}
       status={status}
@@ -42,7 +41,7 @@ let mapStateToProps = (state) => ({
 
 export default compose(
   connect(mapStateToProps, { setUserProfile, profileThunkCreator, getStatus, updateStatus }),
-  // withAuthRedirect
+  withAuthRedirect
 ) (ProfileContainer);
 
 
