@@ -4,7 +4,6 @@ import { transparentAvatar } from "../../assets";
 import { NavLink } from "react-router-dom";
 import Pagination from "@mui/material/Pagination";
 
-
 const Users = ({
   users,
   totalUsersCount,

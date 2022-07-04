@@ -25,28 +25,12 @@ const onSubmit = (values) => {
   console.log(values)
 }
 
-const validate = (values) => {
-  let errors = {};
-
-  if(!values.text) {
-    errors.text = 'Required';
-  // } else if (/^(?:(?![\s\n]+$)[\s\S])+$/.test(values.text)) {
-  //   errors.text = 'Invalid format'
-  }
-
-  return errors;
-}
-
-
 const AddPostForm = (props) => {
 
   const formik = useFormik({
     initialValues,
-    onSubmit,
-    validate
+    onSubmit
   })
-
-  console.log(formik.errors);
 
   return (
      <div>

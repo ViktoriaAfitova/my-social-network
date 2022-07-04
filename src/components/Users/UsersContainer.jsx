@@ -7,7 +7,7 @@ import style from "./users.module.css";
 import Spinner from "../Spinner/Spinner";
 // import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
-const UsersContainer = ({ users, userId, pageSize, totalUsersCount, currentPage, isLoading, getUsersThunkCreator, follow, unfollow, followingInProgress, toggleFollowingInProgress }) => {
+const UsersContainer = ({ users, userId, pageSize, totalUsersCount, currentPage, isLoading, getUsersThunkCreator, follow, unfollow, followingInProgress }) => {
 
   useEffect(() => {
     getUsersThunkCreator(currentPage, pageSize);
@@ -32,7 +32,6 @@ const UsersContainer = ({ users, userId, pageSize, totalUsersCount, currentPage,
             follow={follow}
             unfollow={unfollow}
             followingInProgress={followingInProgress}
-            // toggleFollowingInProgress={toggleFollowingInProgress}
           />
         }
       </div>

@@ -85,8 +85,7 @@ export const toggleFollowingProgress = (isLoading, userId) => ({
   userId,
 });
 
-export const getUsersThunkCreator =
-  (currentPage, pageSize) => async (dispatch) => {
+export const getUsersThunkCreator = (currentPage, pageSize) => async (dispatch) => {
     dispatch(toggleIsLoading(true));
     dispatch(setCurrentPage(currentPage));
 
@@ -114,6 +113,7 @@ export const unfollow = (userId) => {
     dispatch(toggleFollowingProgress(true, userId));
     usersAPI.unfollow(userId).then((response) => {
       if (response.data.result === 0) {
+        debugger;
         dispatch(unfollowSuccess(userId));
       }
       dispatch(toggleFollowingProgress(false, userId));

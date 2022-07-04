@@ -3,7 +3,8 @@ import React from "react";
 import style from "./profileInfo.module.css";
 import ProfileStatus from "./ProfileStatus";
 
-const ProfileInfo = ({ profile, id, posts, status, updateStatus }) => {
+const ProfileInfo = ({ profile, userId, posts, status, updateStatus, newStatus }) => {
+  console.log(newStatus)
 
   return (
     <div>
@@ -13,8 +14,11 @@ const ProfileInfo = ({ profile, id, posts, status, updateStatus }) => {
       <div className={style.description}>
         {/* <img src={profile.photos.large} alt="" /> */}
         <ProfileStatus
+          profile={profile}
+          userId={userId}
           status={status}
           updateStatus={updateStatus}
+          newStatus={newStatus}
         />
         {/* <p>{profile.aboutMe}</p>
         <p>{profile.contacts.facebook}</p>
