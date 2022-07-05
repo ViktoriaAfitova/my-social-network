@@ -32,21 +32,19 @@ export const authThunk = () => (dispatch) => {
   })
 }
 
-export const loginThunk = (email, password, rememberMe) => (dispatch) => {
-  console.log(email, password, rememberMe)
+export const loginThunk = (email, password, rememberMe, setSubmitting) => (dispatch) => {
   authAPI.login(email, password, rememberMe).then(response => {
     if (response.data.resultCode === 0) {
       dispatch(authThunk(response.data.userId));
     }
-    console.log(response)
   })
+  setSubmitting(false);
 }
 
 export const logoutThunk = () => (dispatch) => {
   authAPI.logout().then(response => {
     if (response.data.resultCode === 0) {
       dispatch(setAuthUserData(null, null, null, false));
-      console.log(response)
     }
   })
 }

@@ -4,7 +4,6 @@ import style from "./profileInfo.module.css";
 import ProfileStatus from "./ProfileStatus";
 
 const ProfileInfo = ({ profile, userId, posts, status, updateStatus, newStatus }) => {
-  console.log(newStatus)
 
   return (
     <div>

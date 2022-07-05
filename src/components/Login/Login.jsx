@@ -93,7 +93,7 @@ const Login = ({loginThunk, isAuth, userId}) => {
 
 const mapStateToProps = (state) => ({
   isAuth : state.auth.isAuth,
-  // id: state.auth.id,
+  id: state.auth.id,
 })
 
 export default connect(mapStateToProps, {loginThunk}) (Login);

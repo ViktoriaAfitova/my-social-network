@@ -1,6 +1,7 @@
 .header {
   grid-area: h;
-  background-color: #4C5270;
+  background-color: #222;
+  color: #fff;
 }
 .headerContainer {
   display: flex;
@@ -13,4 +14,15 @@
 }
 .login a {
   color: #F652A0;
+}
+
+.btn {
+  width: 100px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #CE2380;
+  /* color:  #7c7c7c2b; */
+  color: #fff;
 }

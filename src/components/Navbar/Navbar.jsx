@@ -13,7 +13,7 @@ const Navbar = ({profile, id}) => {
         <li className={style.item}><NavLink to="/news" className={style.link}>News</NavLink></li>
         <li className={style.item}><NavLink to="/music" className={style.link}>Music</NavLink></li>
         <li className={style.item}><NavLink to="/settings" className={style.link}>Settings</NavLink></li>
-        <li className={style.item}>Friends</li>
+        {/* <li className={style.item}>Friends</li> */}
       </ul>
     </nav>
   )

@@ -38,12 +38,12 @@ const AddMessageForm = (props) => {
   return (
     <div>
       <form onSubmit={formik.handleSubmit}>
-        <textarea type='text' id='message' name='message'
+        <textarea className={style.textarea} type='text' id='message' name='message'
             value={formik.values.message}
             onChange={formik.handleChange}
             onSubmit={formik.handleSubmit}
           />
-          <button type="submit">Send</button>
+          <button className={style.btn} type="submit">Send</button>
         </form>
     </div>
   )

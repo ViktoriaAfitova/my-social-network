@@ -6,7 +6,18 @@
   height: 100px;
   object-fit: cover;
   border-radius: 50px;
+  border: 1px solid #CE2380;
 }
 .selectedPage {
   font-weight: bold;
+}
+.btn {
+  width: 100px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #CE2380;
+  /* color:  #7c7c7c2b; */
+  color: #fff;
 }

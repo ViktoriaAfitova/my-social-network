@@ -45,7 +45,7 @@ const Users = ({
                 </NavLink>
               </div>
               {user.followed ? (
-                <button
+                <button className={style.btn}
                   disabled={followingInProgress.some((id) => id === user.id)}
                   onClick={() => {
                     unfollow(true, user.id);
@@ -54,7 +54,7 @@ const Users = ({
                   Unfollow
                 </button>
               ) : (
-                <button
+                <button className={style.btn}
                   disabled={followingInProgress.some((id) => id === user.id)}
                   onClick={() => {
                     follow(user.id);

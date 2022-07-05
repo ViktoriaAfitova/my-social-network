@@ -10,10 +10,10 @@ const ProfileContainer = ({ profile, profileThunkCreator, id, posts, status, aut
   const { userId } = useParams();
   console.log(userId)
 
-  if (!userId) {
-    debugger;
-    userId = authorizedUserId;
-  }
+  // if (!userId) {
+  //   debugger;
+  //   userId = authorizedUserId;
+  // }
 
   useEffect(() => {
     profileThunkCreator(userId);
@@ -39,8 +39,8 @@ let mapStateToProps = (state) => ({
   isAuth: state.auth.isAuth,
   posts: state.profilePage.posts,
   status: state.profilePage.status,
-  authorizedUserId: state.auth.userId
-  // id: state.auth.id
+  authorizedUserId: state.auth.userId,
+  id: state.auth.id
 });
 
 export default compose(

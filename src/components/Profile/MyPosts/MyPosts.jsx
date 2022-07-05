@@ -8,7 +8,7 @@ const MyPosts = (props) => {
 
   return (
     <div className={style.postsContainer}>
-      <h2 className={style.item}>My posts</h2>
+      <h2 className={style.item}>Posts</h2>
       <div>
         <AddPostForm/>
         {postsElement}
@@ -37,6 +37,7 @@ const AddPostForm = (props) => {
        <form onSubmit={formik.handleSubmit}>
          <div className={style.formControl}>
            <textarea
+            className={style.textarea}
             type='text'
             id='text'
             name='text'
@@ -47,7 +48,7 @@ const AddPostForm = (props) => {
           {formik.errors.text ? <div className={style.error}>{formik.errors.text}</div> : null}
          </div>
 
-        <div><button type='submit'>Add post</button></div>
+        <div><button className={style.btn} type='submit'>Add post</button></div>
       </form>
     </div>
   )
