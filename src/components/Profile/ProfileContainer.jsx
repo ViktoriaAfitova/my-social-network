@@ -6,12 +6,14 @@ import { useParams } from "react-router-dom";
 import { compose } from "redux";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
-const ProfileContainer = ({ profile, profileThunkCreator, id, posts, status }) => {
+const ProfileContainer = ({ profile, profileThunkCreator, id, posts, status, authorizedUserId }) => {
   const { userId } = useParams();
+  console.log(userId)
 
-  // if (!userId) {
-  //   userId = authorizedUserId;
-  // }
+  if (!userId) {
+    debugger;
+    userId = authorizedUserId;
+  }
 
   useEffect(() => {
     profileThunkCreator(userId);
@@ -23,7 +25,7 @@ const ProfileContainer = ({ profile, profileThunkCreator, id, posts, status }) =
 
   return (
     <Profile
-      // id={userId}
+      id={id}
       profile={profile}
       posts={posts}
       status={status}
@@ -38,6 +40,7 @@ let mapStateToProps = (state) => ({
   posts: state.profilePage.posts,
   status: state.profilePage.status,
   authorizedUserId: state.auth.userId
+  // id: state.auth.id
 });
 
 export default compose(

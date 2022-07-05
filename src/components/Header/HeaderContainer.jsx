@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from './Header';
 import { connect } from 'react-redux';
-import { authThunk } from '../../redux/auth-reducer';
 import { logoutThunk } from '../../redux/auth-reducer';
 
 const HeaderContainer = (props) => {
@@ -17,4 +16,4 @@ const mapStateToProps = (state) => ({
   // profile: state.profilePage.profile
 });
 
-export default connect(mapStateToProps, {authThunk, logoutThunk})(HeaderContainer);
+export default connect(mapStateToProps, {logoutThunk})(HeaderContainer);
