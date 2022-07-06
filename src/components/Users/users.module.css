@@ -1,11 +1,18 @@
 .usersContainer {
   padding: 20px;
 }
-.avatar {
+.avatarContainer {
   width: 100px;
   height: 100px;
+  border-radius: 100px;
+  border: 2px solid #CE2380;
+}
+.avatar {
+  padding: 2px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border-radius: 50px;
+  border-radius: 100px;
   border: 1px solid #CE2380;
 }
 .selectedPage {

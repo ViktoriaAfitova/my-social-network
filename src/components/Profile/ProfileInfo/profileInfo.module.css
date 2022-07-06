@@ -6,6 +6,20 @@
   max-width: 200px;
   margin: 0 auto;
 }
+.avatarContainer {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  border: 3px solid #CE2380;
+}
+.avatar {
+  padding: 2px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 100px;
+  border: 1px solid #CE2380;
+}
 .bg {
   width: 100%;
 }

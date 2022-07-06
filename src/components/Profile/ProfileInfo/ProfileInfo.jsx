@@ -2,8 +2,14 @@ import React from "react";
 // import { computer } from "../../../assets";
 import style from "./profileInfo.module.css";
 import ProfileStatus from "./ProfileStatus";
+import Spinner from "../../Spinner/Spinner";
+import { transparentAvatar } from "../../../assets";
 
 const ProfileInfo = ({ profile, userId, posts, status, updateStatus, newStatus }) => {
+
+  if (!profile) {
+    return <Spinner />
+  }
 
   return (
     <div>
@@ -11,13 +17,15 @@ const ProfileInfo = ({ profile, userId, posts, status, updateStatus, newStatus }
         <img className={style.bg} src={computer} alt="img" />
       </div> */}
       <div className={style.description}>
-        {/* <img src={profile.photos.large} alt="" /> */}
+        <div className={style.avatarContainer}>
+          <img className={style.avatar} src={profile.photos.large != null ? profile.photos.large : transparentAvatar} alt="" />
+        </div>
         <ProfileStatus
-          profile={profile}
-          userId={userId}
+          // profile={profile}
+          // userId={userId}
           status={status}
           updateStatus={updateStatus}
-          newStatus={newStatus}
+          // newStatus={newStatus}
         />
         {/* <p>{profile.aboutMe}</p>
         <p>{profile.contacts.facebook}</p>

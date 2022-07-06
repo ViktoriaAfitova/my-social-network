@@ -46,7 +46,7 @@ const LoginForm = ({loginThunk}) => {
 
   return (
     <div className={style.containerForm}>
-      <form onSubmit={formik.handleSubmit}>
+      <form onSubmit={formik.handleSubmit} component="form">
 
       <div className={style.formControl}>
         <label htmlFor='email' className={style.labelForm}>Email</label>
