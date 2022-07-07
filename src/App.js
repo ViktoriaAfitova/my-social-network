@@ -11,6 +11,9 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import { initializeApp } from "./redux/app-reducer";
 import Spinner from "./components/Spinner/Spinner";
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./redux/redux-store";
 
 export const App = ({initializeApp, initialized}) => {
 
@@ -23,22 +26,20 @@ export const App = ({initializeApp, initialized}) => {
   }
 
   return (
-
-      <div className="wrapper">
-        <HeaderContainer />
-        <NavbarContainer />
-        <div className="wrapper-content">
-          <Routes>
-            <Route path="profile">
-              <Route path=":userId" element={<ProfileContainer/>} />
-            </Route>
-            <Route path="/dialogues" element={<DialoguesContainer />} />
-            <Route path="/users" element={<UsersContainer />} />
-            <Route path="/login" element={<Login />} />
-          </Routes>
-        </div>
+    <div className="wrapper">
+      <HeaderContainer />
+      <NavbarContainer />
+      <div className="wrapper-content">
+        <Routes>
+          <Route path="profile">
+            <Route path=":userId" element={<ProfileContainer/>} />
+          </Route>
+          <Route path="/dialogues" element={<DialoguesContainer />} />
+          <Route path="/users" element={<UsersContainer />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
       </div>
-
+    </div>
   );
 };
 
@@ -47,6 +48,16 @@ const mapStateToProps = (state) => ({
 })
 
 
-export default compose(connect(mapStateToProps, {initializeApp})) (App);
+const AppContainer = compose(connect(mapStateToProps, {initializeApp})) (App);
 
+const AppMainContainer = (props) => {
+  return <BrowserRouter>
+    <React.StrictMode>
+      <Provider store={store}>
+        <AppContainer />
+      </Provider>
+    </React.StrictMode>
+  </BrowserRouter>
+}
 
+export default AppMainContainer;

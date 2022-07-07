@@ -22,5 +22,5 @@ const store = createStore(
   composeEnhancers(applyMiddleware(thunkMiddleware))
 );
 
-window.store = store;
+window.__store__ = store;
 export default store;

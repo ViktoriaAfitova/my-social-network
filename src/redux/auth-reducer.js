@@ -36,7 +36,7 @@ export const loginThunk = (email, password, rememberMe, setSubmitting) => async 
     if (response.data.resultCode === 0) {
       dispatch(authThunk());
     }
-  // setSubmitting(false);
+  setSubmitting(false);
 }
 
 export const logoutThunk = () => async (dispatch) => {
