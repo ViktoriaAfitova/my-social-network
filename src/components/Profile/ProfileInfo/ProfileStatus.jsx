@@ -21,7 +21,7 @@ const ProfileStatus = ({status, updateStatus}) => {
   const onStatusChange = (e) => {
     setNewStatus(e.currentTarget.value);
   }
-console.log(newStatus)
+
   return (
 
     <>

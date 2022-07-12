@@ -1,0 +1,32 @@
+.labelForm {
+  display: flex;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.formControl {
+  margin-bottom: 20px;
+}
+.inputForm {
+  background-color: #7c7c7c2b;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+}
+.textareaForm {
+  background-color: #7c7c7c2b;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+}
+.btn {
+  width: 100px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #CE2380;
+  /* color: #7c7c7c2b; */
+  color: #fff;
+}

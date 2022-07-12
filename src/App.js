@@ -2,8 +2,10 @@ import React, { useEffect } from "react";
 import "./App.css";
 import NavbarContainer from './components/Navbar/NavbarContainer';
 import ProfileContainer from "./components/Profile/ProfileContainer";
+// import ProfileContainer = React.lazy(() => import("./components/Profile/ProfileContainer"));
 import { Routes, Route } from "react-router-dom";
 import DialoguesContainer from "./components/Dialogues/DialoguesContainer";
+// import DialoguesContainer = React.lazy(() => import("./components/Dialogues/DialoguesContainer"));
 import UsersContainer from './components/Users/UsersContainer';
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
@@ -34,7 +36,8 @@ export const App = ({initializeApp, initialized}) => {
           <Route path="profile">
             <Route path=":userId" element={<ProfileContainer/>} />
           </Route>
-          <Route path="/dialogues" element={<DialoguesContainer />} />
+          {/* <Route path="/dialogues" element={<DialoguesContainer />} /> */}
+          <Route path="/dialogues" element={<React.Suspense fallback={<>...</>}><DialoguesContainer/></React.Suspense>} />
           <Route path="/users" element={<UsersContainer />} />
           <Route path="/login" element={<Login />} />
         </Routes>
