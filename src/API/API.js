@@ -21,26 +21,29 @@ export const usersAPI = {
   unfollow(userId) {
     return instance.delete(`follow/${userId}`)
   },
+  getProfile(userId) {
+    return profileAPI.getProfile(userId);
+  }
 };
 
 export const profileAPI = {
   getProfile(userId) {
     return instance.get(`profile/${userId}`)
-    .then((response) => {
-      return response.data;
-    });
+    // .then((response) => {
+    //   return response.data;
+    // });
   },
   getStatus(userId) {
     return instance.get(`profile/status/${userId}`)
-    .then(response => {
-      return response.data;
-    })
+    // .then(response => {
+    //   return response.data;
+    // })
   },
   updateStatus(status) {
     return instance.put(`profile/status`, {status: status})
-    .then((response) => {
-      return response.data;
-    });
+    // .then((response) => {
+    //   return response.data;
+    // });
   },
   savePhoto(photoFile) {
     const formData = new FormData();
@@ -62,14 +65,20 @@ export const profileAPI = {
 export const authAPI = {
   auth() {
     return instance.get(`auth/me`)
-    // .then(response => {
-    //   return response.data;
-    // });
+    .then(response => {
+      return response.data;
+    });
   },
-  login(email, password, rememberMe = false) {
-    return instance.post(`auth/login`, { email, password, rememberMe });
+  login(email, password, rememberMe = false, captcha = null) {
+    return instance.post(`auth/login`, { email, password, rememberMe, captcha });
   },
   logout() {
-    return instance.delete(`auth/login`)
+    return instance.delete(`auth/login`);
+  }
+}
+
+export const securityAPI = {
+  getCaptchaUrl() {
+    return instance.get(`security/get-captcha-url`);
   }
 }

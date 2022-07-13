@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loginThunk } from '../../redux/auth-reducer';
 
-const Login = ({loginThunk, isAuth, userId}) => {
+const Login = ({loginThunk, isAuth, userId, captchaUrl}) => {
 
   if (isAuth) {
     return <Navigate replace to={`/profile/${userId}`} />
@@ -14,14 +14,15 @@ const Login = ({loginThunk, isAuth, userId}) => {
   return (
     <>
       <h1 className={style.titleForm}>Sign Up</h1>
-      <LoginForm loginThunk={loginThunk} />
+      <LoginForm loginThunk={loginThunk} captchaUrl={captchaUrl} />
     </>
   )
 }
 
 const mapStateToProps = (state) => ({
-  isAuth : state.auth.isAuth,
-  id: state.auth.id,
+  captchaUrl: state.auth.captchaUrl,
+  isAuth : state.auth.isAuth
+  // id: state.auth.id,
 })
 
 export default connect(mapStateToProps, {loginThunk}) (Login);

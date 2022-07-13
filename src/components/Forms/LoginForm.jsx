@@ -2,7 +2,7 @@ import { Formik, Form } from "formik";
 import style from "./loginForm.module.css";
 import * as Yup from "yup";
 
-const LoginForm = ({ loginThunk }) => {
+const LoginForm = ({ loginThunk, captchaUrl }) => {
 
   const initialValues = {
     email: "",
@@ -54,6 +54,9 @@ const LoginForm = ({ loginThunk }) => {
             <div className={style.formControl}>
               <input type={'checkbox'} id="rememberMe" name="rememberMe" onChange={formik.handleChange} value={formik.values.rememberMe} />remember me
             </div>
+
+            {captchaUrl && <img src={captchaUrl} alt='captcha' />}
+            {captchaUrl && <input name='captcha' required />}
 
             <div><button type="submit" disabled={!formik.isValid} >Sign Up</button></div>
           </Form>
