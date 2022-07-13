@@ -7,14 +7,14 @@ import { loginThunk } from '../../redux/auth-reducer';
 
 const Login = ({loginThunk, isAuth, userId}) => {
 
-  if(isAuth) {
+  if (isAuth) {
     return <Navigate replace to={`/profile/${userId}`} />
   }
 
   return (
     <>
       <h1 className={style.titleForm}>Sign Up</h1>
-      <LoginForm loginThunk={loginThunk}  />
+      <LoginForm loginThunk={loginThunk} />
     </>
   )
 }

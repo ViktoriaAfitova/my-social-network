@@ -1,6 +1,6 @@
 import { authAPI } from "../API/API";
 
-const SET_USER_DATA = "SET_USER_DATA"; // 'samurai-network/auth/SET_USER_DATA'
+const SET_USER_DATA = "social-network/auth/SET_USER_DATA";
 
 let initialState = {
   userId: null,
@@ -26,7 +26,7 @@ export const setAuthUserData = (userId, email, login, isAuth) => ({ type: SET_US
 export const authThunk = () => async (dispatch) => {
   let response = await authAPI.auth();
     if (response.data.resultCode === 0) {
-      let {id, email, login} = response.data.data;
+      let {id, email, login} = response.data;
       dispatch(setAuthUserData(id, email, login, true));
     }
 }
