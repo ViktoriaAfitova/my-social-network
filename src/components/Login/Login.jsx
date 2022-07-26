@@ -3,7 +3,7 @@ import LoginForm from '../Forms/LoginForm';
 import style from './login.module.css';
 import { Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { loginThunk } from '../../redux/auth-reducer';
+import { loginThunk } from '../../redux/auth-reducer.ts';
 
 const Login = ({loginThunk, isAuth, userId, captchaUrl}) => {
 

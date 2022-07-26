@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
-import { follow, unfollow, getUsersThunkCreator, toggleFollowingProgress } from '../../redux/usersReduser';
+import { follow, unfollow, getUsersThunkCreator, toggleFollowingProgress } from '../../redux/usersReduser.ts';
 import Users from "./Users";
 import style from "./users.module.css";
 import Spinner from "../Spinner/Spinner";

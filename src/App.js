@@ -11,7 +11,7 @@ import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
 import { compose } from "redux";
 import { connect } from "react-redux";
-import { initializeApp } from "./redux/app-reducer";
+import { initializeApp } from "./redux/app-reducer.ts";
 import Spinner from "./components/Spinner/Spinner";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";

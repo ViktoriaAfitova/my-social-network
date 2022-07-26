@@ -1,5 +1,5 @@
 // import React from "react";
-import { sendMessageCreator } from "../../redux/dialoguesReducer";
+import { sendMessageCreator } from "../../redux/dialoguesReducer.ts";
 import Dialogues from "./Dialogues";
 import { connect } from "react-redux";
 import { compose } from "redux";
