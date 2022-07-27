@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import { computer } from "../../../assets";
 import style from "./profileInfo.module.css";
-import ProfileStatus from "./ProfileStatus";
+import ProfileStatus from "./ProfileStatus.tsx";
 import Spinner from "../../Spinner/Spinner";
 import { transparentAvatar } from "../../../assets";
 import ProfileDataForm from "./ProfileDataForm";

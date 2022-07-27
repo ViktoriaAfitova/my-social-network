@@ -6,7 +6,7 @@ import ProfileContainer from "./components/Profile/ProfileContainer";
 import { Routes, Route } from "react-router-dom";
 import DialoguesContainer from "./components/Dialogues/DialoguesContainer";
 // import DialoguesContainer = React.lazy(() => import("./components/Dialogues/DialoguesContainer"));
-import UsersContainer from './components/Users/UsersContainer';
+import UsersContainer from './components/Users/UsersContainer.tsx';
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
 import { compose } from "redux";
@@ -15,7 +15,7 @@ import { initializeApp } from "./redux/app-reducer.ts";
 import Spinner from "./components/Spinner/Spinner";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import store from "./redux/redux-store";
+import store from "./redux/redux-store.ts";
 
 export const App = ({initializeApp, initialized}) => {
 
@@ -38,7 +38,7 @@ export const App = ({initializeApp, initialized}) => {
           </Route>
           {/* <Route path="/dialogues" element={<DialoguesContainer />} /> */}
           <Route path="/dialogues" element={<React.Suspense fallback={<>...</>}><DialoguesContainer/></React.Suspense>} />
-          <Route path="/users" element={<UsersContainer />} />
+          <Route path="/users" element={<UsersContainer pageTitle={'Viki'} />} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </div>

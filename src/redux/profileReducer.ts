@@ -67,8 +67,11 @@ type AddPostActionCreatorType = {
   newPostText: string
 }
 export const addPostActionCreator = (newPostText: string): AddPostActionCreatorType => ({ type: ADD_POST, newPostText });
-
-export const updateNewTextActionCreator = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text });
+type UpdateNewTextActionCreatorType = {
+  type: typeof UPDATE_NEW_POST_TEXT
+  newText: string
+}
+export const updateNewTextActionCreator = (text: string): UpdateNewTextActionCreatorType => ({ type: UPDATE_NEW_POST_TEXT, newText: text });
 
 type SetUserProfileType = {
   type: typeof SET_USER_PROFILE

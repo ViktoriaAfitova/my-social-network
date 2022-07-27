@@ -1,4 +1,4 @@
-import { authThunk } from "./auth-reducer.ts";
+import { authThunk } from "./auth-reducer";
 
 const INITIALIZED_SUCCSESS = "INITIALIZED_SUCCSESS";
 

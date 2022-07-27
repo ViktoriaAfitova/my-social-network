@@ -1,9 +1,22 @@
 import React from "react";
 import style from "./users.module.css";
 import Pagination from "@mui/material/Pagination";
-import User from "./User";
+import User from './User';
+import { UsersType } from '../../types/types';
 
-const Users = ({
+type PropsType = {
+  users: Array<UsersType>
+  totalUsersCount: number
+  pageSize: number
+  currentPage: number
+  onPageChanged: (num: number) => void
+  follow: (userId: number) => void
+  unfollow: (userId: number) => void
+  followingInProgress: Array<number>
+  disabled: boolean
+}
+
+const Users: React.FC<PropsType> = ({
   users,
   totalUsersCount,
   pageSize,
@@ -12,7 +25,7 @@ const Users = ({
   follow,
   unfollow,
   followingInProgress,
-  disabled,
+  disabled
 }) => {
   let pagesCount = Math.ceil(totalUsersCount / pageSize);
 
@@ -23,7 +36,7 @@ const Users = ({
           count={pagesCount}
           size="small"
           page={currentPage}
-          onChange={(_, num) => onPageChanged(num)}
+          onChange={(_, num: number) => onPageChanged(num)}
         />
       </div>
       {users.map(user =>

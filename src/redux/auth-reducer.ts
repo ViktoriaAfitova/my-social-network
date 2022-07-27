@@ -48,14 +48,14 @@ export const getCaptchaUrlSuccess = (captchaUrl: string): GetCaptchaUrlSuccessTy
 
 export const authThunk = () => async (dispatch: any) => {
   let response = await authAPI.auth();
-    if (response.resultCode === 0) {
-      let {id, email, login} = response.data;
+    if (response.resultCode === 0) { // data
+      let {id, email, login} = response.data; // data
       dispatch(setAuthUserData(id, email, login, true));
     }
 }
 
-export const loginThunk = (email: string, password: string, rememberMe: boolean, setSubmitting: any, captcha: string) => async (dispatch: any) => {
-  let response = await authAPI.login(email, password, rememberMe, captcha);
+export const loginThunk = (email: string, password: string, rememberMe: boolean, setSubmitting: any, captcha: null) => async (dispatch: any) => {
+  let response = await authAPI.login(email, password, rememberMe, captcha); // captcha string*
     if (response.data.resultCode === 0) {
       dispatch(authThunk());
     } else {
