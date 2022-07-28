@@ -1,4 +1,4 @@
-import { authAPI, securityAPI } from "../API/API";
+import { authAPI, ResultCodeEnum, ResultCodeForCaptchaEnum, securityAPI } from "../API/API";
 
 const SET_USER_DATA = "SET_USER_DATA";
 const GET_CAPTCHA_URL_SUCCESS = "GET_CAPTCHA_URL_SUCCESS";
@@ -47,23 +47,26 @@ type GetCaptchaUrlSuccessType = {
 export const getCaptchaUrlSuccess = (captchaUrl: string): GetCaptchaUrlSuccessType => ({ type: GET_CAPTCHA_URL_SUCCESS, payload: {captchaUrl} });
 
 export const authThunk = () => async (dispatch: any) => {
-  let response = await authAPI.auth();
-    if (response.resultCode === 0) { // data
-      let {id, email, login} = response.data; // data
+  let authData = await authAPI.auth();
+
+    if (authData.resultCode === ResultCodeEnum.Success) {
+      let {id, email, login} = authData.data;
       dispatch(setAuthUserData(id, email, login, true));
     }
 }
 
-export const loginThunk = (email: string, password: string, rememberMe: boolean, setSubmitting: any, captcha: null) => async (dispatch: any) => {
-  let response = await authAPI.login(email, password, rememberMe, captcha); // captcha string*
-    if (response.data.resultCode === 0) {
+export const loginThunk = (email: string, password: string, rememberMe: boolean, setSubmitting: any, captcha: string) => async (dispatch: any) => {
+  let loginData = await authAPI.login(email, password, rememberMe, captcha); // captcha string*
+    if (loginData.resultCode === ResultCodeEnum.Success) {
       dispatch(authThunk());
     } else {
-      if (response.data.resultCode === 10 ) {
+      if (loginData.resultCode === ResultCodeForCaptchaEnum.CaptchaIsRequired ) {
         dispatch(getCaptchaUrl());
       }
+      let message = loginData.messages.length > 0 ? loginData.messages[0] : 'Some error';
+      dispatch(setSubmitting('login', {_error: message}))
     }
-  setSubmitting(false);
+  // setSubmitting(false);
 }
 
 export const getCaptchaUrl = () => async (dispatch: any) => {
