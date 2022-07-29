@@ -2,6 +2,13 @@ import { Formik, Form } from "formik";
 import style from "./loginForm.module.css";
 import * as Yup from "yup";
 
+type InitialValuesType = {
+  email: string,
+  password: string,
+  rememberMe: boolean
+}
+type InitialValuesKeysType = keyof InitialValuesType
+
 const LoginForm = ({ loginThunk, captchaUrl }) => {
 
   const initialValues = {
@@ -15,10 +22,10 @@ const LoginForm = ({ loginThunk, captchaUrl }) => {
     password: Yup.string().min(8, 'Too short').max(50, 'Too long').required("Required"),
   })
 
-  const onSubmit = (values, { setSubmitting }) => {
+  const onSubmit = (values: InitialValuesType, { setSubmitting }) => {
     loginThunk(values.email, values.password, values.rememberMe, setSubmitting);
     // alert("Form is validated!");
-    setSubmitting(true);
+    setSubmitting(false);
     // console.log(values);
   }
 
@@ -37,7 +44,7 @@ const LoginForm = ({ loginThunk, captchaUrl }) => {
               <label htmlFor='email' className={style.labelForm}>Email</label>
               <input type='email' id="email" name="email" className={style.inputForm}
                 onChange={formik.handleChange}
-                value={formik.values.login}
+                value={formik.values.email}
               />
               {formik.errors.email ? <div className={style.error}>{formik.errors.email}</div> : null}
             </div>
