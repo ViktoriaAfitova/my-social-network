@@ -1,5 +1,5 @@
 import { AppStateType, InferActionsTypes } from './redux-store';
-import { usersAPI } from "../API/API";
+import { usersAPI } from '../API/users-api';
 import { UsersType } from "../types/types";
 import { updateObjectInArray } from "../utils/iteration-helper";
 import { Dispatch } from 'redux';

@@ -1,4 +1,6 @@
-import { authAPI, ResultCodeEnum, ResultCodeForCaptchaEnum, securityAPI } from "../API/API";
+import { ResultCodeEnum, ResultCodeForCaptchaEnum } from "../API/API";
+import { authAPI } from "../API/auth-api";
+import { securityAPI } from "../API/security-api";
 
 const SET_USER_DATA = "SET_USER_DATA";
 const GET_CAPTCHA_URL_SUCCESS = "GET_CAPTCHA_URL_SUCCESS";
@@ -56,7 +58,7 @@ export const authThunk = () => async (dispatch: any) => {
 }
 
 export const loginThunk = (email: string, password: string, rememberMe: boolean, setSubmitting: any, captcha: string) => async (dispatch: any) => {
-  let loginData = await authAPI.login(email, password, rememberMe, captcha); // captcha string*
+  let loginData = await authAPI.login(email, password, rememberMe, captcha);
     if (loginData.resultCode === ResultCodeEnum.Success) {
       dispatch(authThunk());
     } else {
@@ -70,8 +72,8 @@ export const loginThunk = (email: string, password: string, rememberMe: boolean,
 }
 
 export const getCaptchaUrl = () => async (dispatch: any) => {
-  const response = await securityAPI.getCaptchaUrl();
-  const captcaUrl = response.data.url;
+  const data = await securityAPI.getCaptchaUrl();
+  const captcaUrl = data.url;
   dispatch(getCaptchaUrlSuccess(captcaUrl));
 }
 
